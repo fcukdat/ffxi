@@ -2,234 +2,243 @@ local profile = {};
 
 local sets = {
     Fastcast_Priority = {
-        Body = 'Wizard\'s Coat',
+        Ear1 = {'Loquacious Earring'},
+        Feet = {'Rostrum Pumps'},
+        Back = {'Warlock\'s Mantle'},
+    },
+    Haste_Priority = {
+        Body = {'Nashira Manteel'},
+        Feet = {'Rostrum Pumps'},
+        Back = {'Warlock\'s Mantle'},
     },
     Fishing = {
-        Body = 'Fsh. Tunica',
-        Hands = 'Fsh. Gloves',
-        Ring2 = 'Albatross Ring',
-        Legs = 'Fisherman \'s Hose',
-        Feet = 'Waders',
+        Body = {'Fsh. Tunica'},
+        Hands = {'Fsh. Gloves'},
+        Ring2 = {'Albatross Ring'},
+        Legs = {'Fisherman \'s Hose'},
+        Feet = {'Waders'},
     },
     Digging = {
-        Body = 'Choc. Jack Coat',
-        Hands = 'Chocobo Gloves',
-        Legs = 'Chocobo Hose',
-        Feet = 'Rider\'s Boots',
+        Body = {'Choc. Jack Coat'},
+        Hands = {'Chocobo Gloves'},
+        Legs = {'Chocobo Hose'},
+        Feet = {'Rider\'s Boots'},
     },
-    Idle = {
-        Main = 'Terra\'s Staff',
-        --Head = 'Wizard\'s Petasos',
-        Neck = 'Checkered Scarf',
-        Ear1 = 'Moldavite Earring',
-        Ear2 = 'Cunning Earring',
-        Body = 'Black Cloak',
-        Hands = 'Errant Cuffs',
-        Ring1 = 'Diamond Ring',
-        Ring2 = 'Astral Ring',
-        Back = 'Rainbow Cape',
-        Waist = 'Penitent\'s Rope',
-        Legs = 'Errant Slops',
-        Feet = 'Sorcerer\'s Sabots',
+    Idle_Priority = {
+        Main = {'Terra\'s Staff'},
+        Head = {'Wizard\'s Petasos'},
+        Neck = {'Black Neckerchief', 'Checkered Scarf'},
+        Ear1 = {'Moldavite Earring'},
+        Ear2 = {'Cunning Earring'},
+        Body = {'Sorcerer\'s Coat', 'Black Cloak', 'Vermillion Cloak'},
+        Hands = {'Sorcerer\'s Gloves', 'Wizard\'s Gloves'},
+        Ring1 = {'Tamas Ring'},
+        Ring2 = {'Astral Ring'},
+        Back = {'Rainbow Cape'},
+        Waist = {'Hierarch Belt', 'Penitent\'s Rope'},
+        Legs = {'Mahatma Slops'},
+        Feet = {'Sorcerer\'s Sabots', 'Wizard\'s Sabots'},
     },
-    Resting = {
-        Main = 'Pluto\'s Staff',
-        Head = 'Wizard\'s Petasos',
-        Neck = 'Checkered Scarf',
-        Body = 'Errant Hpl.',
-        Hands = 'Wizard\'s Gloves',
-        Back = 'Rainbow Cape',
-        Waist = 'Penitent\'s Rope',
-        Legs = 'Baron\'s Slops',
-        Feet = 'Sorcerer\'s Sabots',
+    Resting_Priority = {
+        Main = {'Pluto\'s Staff', 'Pilgrim\'s Wand'},
+        Head = {'Wizard\'s Petasos', 'Seer\'s Crown +1'},
+        Neck = {'Checkered Scarf'},
+        Body = { 'Errant Hpl.', 'Seer\'s Tunic +1'},
+        Hands = {'Sorcerer\'s Gloves', 'Wizard\'s Gloves'},
+        Ring1 = {'Tamas Ring'},
+        Back = {'Rainbow Cape', 'Blue Cape'},
+        Waist = {'Hierarch Belt', 'Penitent\'s Rope', 'Friar\'s Rope'},
+        Legs = {'Baron\'s Slops'},
+        Feet = {'Sorcerer\'s Sabots'},
     },
-    DarkMagic = {
-        Main = 'Pluto\'s Staff',
-        Head = 'Wizard\'s Petasos',
-        Neck = 'Philomath Stole',
-        Ear1 = 'Cunning Earring',
-        Ear2 = 'Cunning Earring',
-        Body = 'Errant Hpl.',
-        Hands = 'Seer\'s Mitts +1',
-        Ring1 = 'Diamond Ring',
-        Ring2 = 'Diamond Ring',
-        Back = 'Black Cape +1',
-        Waist = 'Penitent\'s Rope',
-        Legs = 'Wizard\'s Tonban',
-        Feet = 'Sorcerer\'s Sabots',
+    DarkMagic_Priority = {
+        Main = {'Pluto\'s Staff'},
+        Head = {'Wizard\'s Petasos'},
+        Neck = {'Philomath Stole'},
+        Ear1 = {'Cunning Earring'},
+        Ear2 = {'Cunning Earring'},
+        Body = {'Errant Hpl.'},
+        Hands = {'Sorcerer\'s Gloves', 'Seer\'s Mitts +1'},
+        Ring1 = {'Tamas Ring'},
+        Ring2 = {'Genius Ring', 'Eremite\'s Ring'},
+        Back = {'Rainbow Cape', 'Black Cape +1'},
+        Waist = {'Penitent\'s Rope'},
+        Legs = {'Wizard\'s Tonban'},
+        Feet = {'Sorcerer\'s Sabots'},
     },
-    DrainAspir = { -- Focus Dark Magic Skill then MagAcc then Int
-        Main = 'Pluto\'s Staff',
-        Head = 'Wizard\'s Petasos',
-        Neck = 'Philomath Stole',
-        Ear1 = 'Cunning Earring',
-        Ear2 = 'Cunning Earring',
-        Body = 'Errant Hpl.',
-        Hands = 'Seer\'s Mitts +1',
-        Ring1 = 'Diamond Ring',
-        Ring2 = 'Diamond Ring',
-        Back = 'Black Cape +1',
-        Waist = 'Penitent\'s Rope',
-        Legs = 'Wizard\'s Tonban',
-        Feet = 'Sorcerer\'s Sabots',
+    DrainAspir_Priority = { -- Focus Dark Magic Skill then MagAcc then Int
+        Main = {'Pluto\'s Staff'},
+        Head = {'Wizard\'s Petasos'},
+        Neck = {'Philomath Stole'},
+        Ear1 = {'Cunning Earring'},
+        Ear2 = {'Cunning Earring'},
+        Body = {'Errant Hpl.'},
+        Hands = {'Sorcerer\'s Gloves', 'Seer\'s Mitts +1'},
+        Ring1 = {'Tamas Ring'},
+        Ring2 = {'Genius Ring', 'Eremite\'s Ring'},
+        Back = {'Black Cape +1'},
+        Waist = {'Penitent\'s Rope'},
+        Legs = {'Wizard\'s Tonban'},
+        Feet = {'Sorcerer\'s Sabots'},
     },
-    stun = {
-        Main = 'Jupiter\'s Staff',
-        Head = 'Wizard\'s Petasos',
-        Neck = 'Philomath Stole',
-        Ear1 = 'Cunning Earring',
-        Ear2 = 'Cunning Earring',
-        Body = 'Errant Hpl.',
-        Hands = 'Seer\'s Mitts +1',
-        Ring1 = 'Diamond Ring',
-        Ring2 = 'Diamond Ring',
-        Back = 'Black Cape +1',
-        Waist = 'Penitent\'s Rope',
-        Legs = 'Wizard\'s Tonban',
-        Feet = 'Sorcerer\'s Sabots',
+    Stun_Priority = {
+        Main = {'Jupiter\'s Staff'},
+        Head = {'Wizard\'s Petasos'},
+        Neck = {'Philomath Stole'},
+        Ear1 = {'Cunning Earring'},
+        Ear2 = {'Cunning Earring'},
+        Body = {'Errant Hpl.'},
+        Hands = {'Sorcerer\'s Gloves', 'Seer\'s Mitts +1'},
+        Ring1 = {'Tamas Ring'},
+        Ring2 = {'Genius Ring', 'Eremite\'s Ring'},
+        Back = {'Rainbow Cape', 'Black Cape +1'},
+        Waist = {'Penitent\'s Rope'},
+        Legs = {'Wizard\'s Tonban'},
+        Feet = {'Sorcerer\'s Sabots'},
     },
-    nuke_general = {
-        Main = 'Rose Wand +1',
-        Ammo = 'Phtm. Tathlum',
-        Head = 'Wizard\'s Petasos',
-        Neck = 'Philomath Stole',
-        Ear1 = 'Moldavite Earring',
-        Ear2 = 'Cunning Earring',
-        Body = 'Igqira Weskit',
-        Hands = 'Wizard\'s Gloves',
-        Ring1 = 'Diamond Ring',
-        Ring2 = 'Diamond Ring',
-        Back = 'Rainbow Cape',
-        Waist = 'Penitent\'s Rope',
-        Legs = 'Errant Slops',
-        Feet = 'Sorcerer\'s Sabots',
-    },
-    nuke_sorcy = {
-        Main = 'Rose Wand +1',
-        Ammo = 'Phtm. Tathlum',
-        Head = 'Wizard\'s Petasos',
-        Neck = 'Philomath Stole',
-        Ear1 = 'Moldavite Earring',
-        Ear2 = 'Cunning Earring',
-        Body = 'Igqira Weskit',
-        Hands = 'Wizard\'s Gloves',
-        Ring1 = 'Diamond Ring',
-        Ring2 = 'Sorcerer\'s Ring',
-        Back = 'Rainbow Cape',
-        Waist = 'Penitent\'s Rope',
-        Legs = 'Errant Slops',
-        Feet = 'Sorcerer\'s Sabots',
-    },
-    nuke_Priority = {
+    SorcyNuke_Priority = {
         Main = {'Rose Wand +1', 'Solid Wand', 'Yew Wand +1', 'Pilgrim\'s Wand'},
         Ammo = {'Phtm. Tathlum', 'Morion Tathlum'},
-        Head = {'Wizard\'s Petasos', 'Seer\'s Crown'},
+        Head = {'Demon Helm', 'Wizard\'s Petasos', 'Seer\'s Crown'},
+        Neck = {'Philomath Stole'},
+        Ear1 = {'Moldavite Earring'},
+        Ear2 = {'Cunning Earring'},
+        Body = {'Igqira Weskit', 'Justaucorps +1'},
+        Hands = {'Wizard\'s Gloves'},
+        Ring1 = {'Tamas Ring'},
+        Ring2 = {'Sorcerer\'s Ring'},
+        Back = {'Rainbow Cape', 'Black Cape +1'},
+        Waist = {'Penitent\'s Rope'},
+        Legs = {'Mahatma Slops'},
+        Feet = {'Sorcerer\'s Sabots', 'Wizard\'s Sabots'},
+    },
+    Nuke_Priority = {
+        Main = {'Rose Wand +1', 'Solid Wand', 'Yew Wand +1', 'Pilgrim\'s Wand'},
+        Ammo = {'Phtm. Tathlum', 'Morion Tathlum'},
+        Head = {'Demon Helm', 'Wizard\'s Petasos', 'Seer\'s Crown'},
         Neck = {'Philomath Stole'},
         Ear1 = {'Moldavite Earring', 'Cunning Earring'},
         Ear2 = {'Cunning Earring'},
-        Body = {'Black Cotehardie', 'Igqira Weskit'},
-        Hands = {'Wizard\'s Gloves'},
-        Ring1 = {'Zircon Ring'},
-        Ring2 = {'Zircon Ring'},
+        Body = {'Igqira Weskit', 'Justaucorps +1', 'Ryl.Sqr. Robe'},
+        Hands = {'Wizard\'s Gloves', 'Seer\'s Mitts +1'},
+        Ring1 = {'Tamas Ring'},
+        Ring2 = {'Genius Ring', 'Eremite\'s Ring'},
         Back = {'Rainbow Cape', 'Black Cape +1'},
         Waist = {'Penitent\'s Rope', 'Mrc.Cpt. Belt', 'Friar\'s Rope'},
-        Legs = {'Errant Slops', 'Seer\'s Slacks +1'},
-        Feet = {'Wizard\'s Sabots'},
+        Legs = {'Mahatma Slops', 'Seer\'s Slacks +1'},
+        Feet = {'Sorcerer\'s Sabots', 'Wizard\'s Sabots'},
     },
-    ElementalDots = { -- MAX INT
-        Main = 'Rose Wand +1',
-        Ammo = 'Phtm. Tathlum',
-        Head = 'Wizard\'s Petasos',
-        Neck = 'Philomath Stole',
-        Ear2 = 'Cunning Earring',
-        Ear2 = 'Cunning Earring',
-        Body = 'Errant Hpl.',
-        Hands = 'Errant Cuffs',
-        Ring1 = 'Diamond Ring',
-        Ring2 = 'Diamond Ring',
-        Back = 'Rainbow Cape',
-        Waist = 'Penitent\'s Rope',
-        Legs = 'Errant Slops',
-        Feet = 'Sorcerer\'s Sabots',
+    ElementalDots_Priority = { -- MAX INT
+        Main = {'Rose Wand +1', 'Solid Wand', 'Yew Wand +1', 'Pilgrim\'s Wand'},
+        Ammo = {'Phtm. Tathlum', 'Morion Tathlum'},
+        Head = {'Demon Helm', 'Wizard\'s Petasos', 'Seer\'s Crown'},
+        Neck = {'Philomath Stole', 'Checkered Scarf'},
+        Ear2 = {'Cunning Earring'},
+        Ear2 = {'Cunning Earring'},
+        Body = {'Errant Hpl.', 'Justaucorps +1'},
+        Hands = {'Errant Cuffs', 'Seer\'s Mitts +1'},
+        Ring1 = {'Tamas Ring'},
+        Ring2 = {'Genius Ring', 'Eremite\'s Ring'},
+        Back = {'Rainbow Cape', 'Black Cape +1'},
+        Waist = {'Penitent\'s Rope', 'Mrc.Cpt. Belt', 'Friar\'s Rope'},
+        Legs = {'Mahatma Slops', 'Seer\'s Slacks +1'},
+        Feet = {'Sorcerer\'s Sabots', 'Wizard\'s Sabots'},
     },
-    enfeeble_int = {
-        Main = 'Rose Wand +1',
-        Ammo = 'Phtm. Tathlum',
-        Head = 'Igqira Tiara',
-        Neck = 'Enfeebling Torque',
-        Ear1 = 'Cunning Earring',
-        Ear2 = 'Cunning Earring',
-        Body = 'Wizard\'s Coat',
-        Hands = 'Errant Cuffs',
-        Ring1 = 'Diamond Ring',
-        Ring2 = 'Diamond Ring',
-        Back = 'Black Cape +1',
-        Waist = 'Penitent\'s Rope',
-        Legs = 'Errant Slops',
-        Feet = 'Sorcerer\'s Sabots',
+    Intfeebles_Priority = {
+        Main = {'Rose Wand +1', 'Solid Wand', 'Yew Wand +1', 'Pilgrim\'s Wand'},
+        Ammo = {'Phtm. Tathlum', 'Morion Tathlum'},
+        Head = {'Igqira Tiara', 'Wizard\'s Petasos', 'Seer\'s Crown'},
+        Neck = {'Enfeebling Torque'},
+        Ear1 = {'Cunning Earring'},
+        Ear2 = {'Cunning Earring'},
+        Body = {'Wizard\'s Coat'},
+        Hands = {'Errant Cuffs', 'Seer\'s Mitts +1'},
+        Ring1 = {'Tamas Ring'},
+        Ring2 = {'Genius Ring', 'Eremite\'s Ring'},
+        Back = {'Rainbow Cape', 'Black Cape +1'},
+        Waist = {'Penitent\'s Rope', 'Mrc.Cpt. Belt', 'Friar\'s Rope'},
+        Legs = {'Mahatma Slops'},
+        Feet = {'Sorcerer\'s Sabots', 'Wizard\'s Sabots'},
     },
-    enfeeble_mnd = {
-        Main = 'Rose Wand +1',
-        Head = 'Igqira Tiara',
-        Neck = 'Enfeebling Torque',
-        Ear1 = 'Cunning Earring',
-        Ear2 = 'Cunning Earring',
-        Body = 'Wizard\'s Coat',
-        Hands = 'Seer\'s Mitts +1',
-        Ring1 = 'Saintly Ring',
-        Ring2 = 'Saintly Ring',
-        Back = 'Rainbow Cape',
-        Waist = 'Penitent\'s Rope',
-        Legs = 'Errant Slops',
-        Feet = 'Errant Pigaches',
+    Mndfeebles_Priority = {
+        Main = {'Rose Wand +1', 'Solid Wand', 'Yew Wand +1', 'Pilgrim\'s Wand'},
+        Head = {'Igqira Tiara'},
+        Neck = {'Enfeebling Torque'},
+        Ear1 = {'Cunning Earring'},
+        Ear2 = {'Cunning Earring'},
+        Body = {'Wizard\'s Coat'},
+        Hands = {'Seer\'s Mitts +1'},
+        Ring1 = {'Tamas Ring'},
+        Ring2 = {'Saintly Ring'},
+        Back = {'Rainbow Cape', 'White Cape +1'},
+        Waist = {'Penitent\'s Rope', 'Mrc.Cpt. Belt', 'Friar\'s Rope'},
+        Legs = {'Mahatma Slops'},
+        Feet = {'Errant Pigaches', 'Seer\'s Pumps'},
     },
-    Cure = {
-        Main = 'Apollo\'s Staff',
-        Head = 'Traveler\'s Hat',
-        Neck = 'Enfeebling Torque',
-        Ear1 = 'Cunning Earring',
-        Ear2 = 'Cunning Earring',
-        Body = 'Errant Hpl.',
-        Hands = 'Seer\'s Mitts +1',
-        Ring1 = 'Saintly Ring',
-        Ring2 = 'Saintly Ring',
-        Back = 'Rainbow Cape',
-        Waist = 'Penitent\'s Rope',
-        Legs = 'Errant Slops',
-        Feet = 'Errant Pigaches',
+    Cure_Priority = {
+        Main = {'Apollo\'s Staff'},
+        Head = {'Traveler\'s Hat', 'Wizard\'s Petasos'},
+        Neck = {'Justice Badge'},
+        Ear1 = {'Cunning Earring'},
+        Ear2 = {'Cunning Earring'},
+        Body = {'Errant Hpl.'},
+        Hands = {'Seer\'s Mitts +1'},
+        Ring1 = {'Tamas Ring'},
+        Ring2 = {'Saintly Ring'},
+        Back = {'Rainbow Cape'},
+        Waist = {'Penitent\'s Rope', 'Mrc.Cpt. Belt', 'Friar\'s Rope'},
+        Legs = {'Mahatma Slops'},
+        Feet = {'Errant Pigaches', 'Seer\'s Pumps'},
     },
-    negativeHP = {
-        Main = 'Asklepios',
-        Ammo = 'Tiphia Sting',
-        Head = 'Gold Hairpin',
-        Neck = 'Star Necklace',
-        Ear1 = 'Moldavite Earring',
-        Ear2 = 'Cunning Earring',
-        Body = 'Black Cotehardie',
-        Hands = 'Errant Cuffs',
-        Ring1 = 'Astral Ring',
-        Ring2 = 'Astral Ring',
-        Back = 'Blue Cape',
-        Waist = 'Penitent\'s Rope',
-        Legs = 'Wizard\'s Tonban',
-        Feet = 'Errant Pigaches',
+    EnmityMP_Priority = { -- Other Priorities: Refresh, ConserveMP 
+        Main = {'Terra\'s Staff'},
+        Head = {'Wizard\'s Petasos'},
+        Neck = {'Black Neckerchief', 'Checkered Scarf'},
+        Ear1 = {'Moldavite Earring'},
+        Ear2 = {'Cunning Earring'},
+        Body = {'Sorcerer\'s Coat', 'Black Cloak', 'Vermillion Cloak'},
+        Hands = {'Sorcerer\'s Gloves', 'Wizard\'s Gloves'},
+        Ring1 = {'Tamas Ring'},
+        Ring2 = {'Astral Ring'},
+        Back = {'Rainbow Cape'},
+        Waist = {'Penitent\'s Rope'},
+        Legs = {'Mahatma Slops'},
+        Feet = {'Sorcerer\'s Sabots', 'Wizard\'s Sabots'},
     },
-    -- itemnames = {
-    --     Main = 'Asklepios', 'Rose Wand +1', 'Pluto\'s Staff',
-    --     Ammo = 'Phtm. Tathlum',
-    --     Head = 'Gold Hairpin', 'Wizard\'s Petasos', 'Igqira Tiara', 'Traveler\'s Hat'
-    --     Neck = 'Star Necklace', 'Black Neckerchief', 'Checkered Scarf',
-    --     Ear1 = 'Moldavite Earring',
-    --     Ear2 = 'Cunning Earring',
-    --     Body = 'Ryl.Sqr. Robe', 'Igqira Weskit', 'Seer\'s Tunic +1',
-    --     Hands = 'Wizard\'s Gloves',
-    --     Ring1 = 'Astral Ring',
-    --     Ring2 = 'Astral Ring',
-    --     Back = 'Rainbow Cape', 'Zircon Ring', 'Black Cape +1',
-    --     Waist = 'Penitent\'s Rope',
-    --     Legs = 'Baron\'s Slops', 'Errant Slops',
-    --     Feet = 'Wizard\'s Sabots',
-    -- },
+    Enhancing_Priority = {
+        Main = {'Terra\'s Staff'},
+        Head = {'Wizard\'s Petasos'},
+        Neck = {'Black Neckerchief', 'Checkered Scarf'},
+        Ear1 = {'Moldavite Earring'},
+        Ear2 = {'Cunning Earring'},
+        Body = {'Sorcerer\'s Coat', 'Black Cloak', 'Vermillion Cloak'},
+        Hands = {'Sorcerer\'s Gloves', 'Wizard\'s Gloves'},
+        Ring1 = {'Tamas Ring'},
+        Ring2 = {'Astral Ring'},
+        Back = {'Rainbow Cape'},
+        Waist = {'Penitent\'s Rope'},
+        Legs = {'Mahatma Slops'},
+        Feet = {'Sorcerer\'s Sabots', 'Wizard\'s Sabots'},
+    },
+    NegativeHP_Priority = {
+        Main = {'Asklepios'},
+        Ammo = {'Tiphia Sting'},
+        Head = {'Gold Hairpin'},
+        Neck = {'Star Necklace'},
+        Ear1 = {'Moldavite Earring'},
+        Ear2 = {'Cunning Earring'},
+        Body = {'Black Cotehardie'},
+        Hands = {'Errant Cuffs'},
+        Ring1 = {'Astral Ring'},
+        Ring2 = {'Astral Ring'},
+        Back = {'Blue Cape'},
+        Waist = {'Penitent\'s Rope'},
+        Legs = {'Wizard\'s Tonban'},
+        Feet = {'Errant Pigaches'},
+    },
+    PositiveHP_Priority = {
+        Feet = {'Wonder Clomps'},
+    },
 };
 
 profile.Sets = sets;
@@ -240,11 +249,12 @@ profile.Packer = {
 local Settings = {
     UseRefreshIdle = true;
     UseSorcy = false;
+    CurrentLevel = 0,
 };
 
 profile.OnLoad = function()
     gSettings.AllowAddSet = true;
-    print('Loaded Blackmage (75) Set');
+    print('Loaded Blackmage Sync Set');
     print('Current Settings: ');
     print('UseRefreshIdle: ' .. tostring(Settings.UseRefreshIdle));
     print('UseSorcy: '.. tostring(Settings.UseSorcy));
@@ -276,44 +286,32 @@ end
 -- --Checks for Sorc Ring latent.
 function SorcyRing()
     local player = gData.GetPlayer()
-    
     if player.HPP <= 75 and player.TP <= 1000 then
         return true
     end
-    
+    return false
+end
+
+-- --Checks for Uggy Pendant latent.
+function UggyPendant(spell)
+    local player = gData.GetPlayer()
+    if spell.MppAftercast <= 50 then
+        return true
+    end
     return false
     
 end
 
 -- --Checks for Uggy Pendant latent.
--- function UggyPendant(spell)
---     local player = gData.GetPlayer()
+function DiablosRing(spell)
+    local player = gData.GetPlayer()
+    local environment = gData.GetEnvironment()
+    if spell.MppAftercast <= 50 then
+        return true
+    end
+    return false
     
---     if spell.MppAftercast <= 50 then
---         return true
---     end
-    
---     return false
-    
--- end
-
--- function DiablosGear()
---     local environment = gData.GetEnvironment();
-
---     if (environment.WeatherElement == 'Dark') then --DiabEar if Dark
---         gFunc.Equip('Ear2', 'Diabolos\'s Earring');
---     end
---     if (player.MPP <86 and environment.DayElement == 'Dark') then
---         print('Current HP % : ' .. player.MPP ..'%..  Equipping Diabolos Ring');
---         gFunc.EquipSet(sets.DarkMagic);
---         gFunc.Equip('Ring2', 'Diabolos\'s Ring');
---     end
---     if (environment.WeatherElement == 'Dark') then
---         print('Equipping Diabolos Pole');
---         gFunc.EquipSet(sets.DarkMagic);
---         gFunc.Equip('Main', 'Diabolos\'s Pole');
---     end
--- )
+end
 
 function DiablosEarring()
     local environment = gData.GetEnvironment()
@@ -322,14 +320,6 @@ function DiablosEarring()
     end
 end
 
-
-function DiablosRing()
-    local environment = gData.GetEnvironment()
-    local mp_percent = 60 -- Calculate & Change this value for more customisation
-    if (player.MPP < mp_percent and environment.DayElement == 'Dark') then --Diab if DarkDay & Less than certain MP
-        gFunc.Equip('Ear2', 'Diabolos\'s Earring');
-    end
-end
 
 --Checks for Obi Applicability. Accounts for negative weathwer/day associations. Obi must hit 10% to pass requirement to equip. 
 function ObiCheck(spell)
@@ -381,7 +371,7 @@ end
 --         gFunc.EquipSet(UggyPendant)
 --     end
 --     --SorcRing Check
---     if RingActive() then
+--     if SorcyRing() then
 --         gFunc.EquipSet(SorcRing)
 --     end
 --     --ObiApplication Check
@@ -391,11 +381,11 @@ end
 -- )
 
 profile.HandleDefault = function()
-    -- local myLevel = AshitaCore:GetMemoryManager():GetPlayer():GetMainJobLevel();
-    -- if (myLevel ~= Settings.CurrentLevel) then
-    --     gFunc.EvaluateLevels(profile.Sets, myLevel);
-    --     Settings.CurrentLevel = myLevel;
-    -- end
+    local myLevel = AshitaCore:GetMemoryManager():GetPlayer():GetMainJobLevel();
+    if (myLevel ~= Settings.CurrentLevel) then
+        gFunc.EvaluateLevels(profile.Sets, myLevel);
+        Settings.CurrentLevel = myLevel;
+    end
 
     local player = gData.GetPlayer();
     if (player.Status == 'Engaged') then
@@ -433,13 +423,33 @@ profile.HandleMidcast = function()
         ['Light'] = 'Apollo\'s Staff',
         ['Dark'] = 'Pluto\'s Staff'
     };
+    local ObiTable = {
+        ['Fire'] = 'Karin Obi',
+        ['Earth'] = 'Dorin Obi',
+        ['Water'] = 'Suirin Obi',
+        ['Wind'] = 'Furin Obi',
+        ['Ice'] = 'Hyorin Obi',
+        ['Thunder'] = 'Rairin Obi',
+        ['Light'] = 'Korin Obi',
+        ['Dark'] = 'Anrin Obi'
+    };
+    local DayElementTable = {
+        ['Firesday'] = 'Fire',
+        ['Earthsday'] = 'Earth',
+        ['Watersday'] = 'Water',
+        ['Windsday'] = 'Wind',
+        ['Iceday'] = 'Ice',
+        ['Lightningday'] = 'Thunder',
+        ['Lightsday'] = 'Light',
+        ['Darksday'] = 'Dark'
+    };
     -- ====== Use ingame to See cast delay of spells =====
     -- local spell = gData.GetAction();
     -- local fastCastValue = 0.30;
     -- local minimumBuffer = 0.1;
     -- local packetDelay = 0.4;
     -- local castDelay = ((spell.CastTime * (1 - fastCastValue)) / 1000) - minimumBuffer;
-    -- print(castDelay); -- 1 will work for most nukes
+    -- print(castDelay); -- 1 will work for most Nukes
     -- ====== Use ingame to See cast delay of spells =====
 
     local castDelay = 0.5;
@@ -448,9 +458,9 @@ profile.HandleMidcast = function()
     if (action.Skill == 'Enfeebling Magic') then
         -- +++++ ENFEEBLE +++++ SECTION +++++ START +++++       ++++++++++++++++++++++++++++++ ENFEEBLE +++++++++++++++++++++++++ --
         if (MndDebuffs:contains(action.Name)) then
-            gFunc.EquipSet(sets.enfeeble_mnd);
+            gFunc.EquipSet(sets.Mndfeebles);
         else
-            gFunc.EquipSet(sets.enfeeble_int);
+            gFunc.EquipSet(sets.Intfeebles);
         end
         gFunc.Equip('main', ElementalStaffTable[action.Element]);
         if (environment.WeatherElement == 'Dark') then --DiabEar if Dark
@@ -465,41 +475,53 @@ profile.HandleMidcast = function()
             gFunc.EquipSet(sets.Impact);
         else
             if (Settings.UseSorcy == true) then -- IF SORCY ON
-                print('Lowering HP');
+                -- print('Lowering HP');
                 gFunc.SetMidDelay(castDelay);
-                gFunc.InterimEquipSet(sets.negativeHP);
-                gFunc.EquipSet(sets.nuke_sorcy);
+                gFunc.InterimEquipSet(sets.NegativeHP);
+                gFunc.EquipSet(sets.SorcyNuke);
+                if (Settings.CurrentLevel < 72) then -- IncreaseHP 
+                    gFunc.EquipSet(sets.PositiveHP);
+                end
             else
-                gFunc.EquipSet(sets.nuke_general); -- Default Nuke
+                gFunc.EquipSet(sets.Nuke); -- Default Nuke
+            end
+            if ObiCheck(action) >= 1 then -- 
+                gFunc.Equip('waist', ObiTable[action.Element]);
+            end
+            if UggyPendant(action) then -- 
+                gFunc.Equip('neck', 'Ug');
+            end
+            if (DayElementTable[environment.Day] == action.Element) then
+                gFunc.Equip('legs', 'Sorcerer\'s Tonban');
             end
         end
         gFunc.Equip('main', ElementalStaffTable[action.Element]);
-        -- +++++ +++++ Sorcy Ring Section +++++ +++++; 
         -- This stays true regardless of toggling or not (a "might as well situation")
-        if (player.HPP <76) then
-            print('Current HP % : ' .. player.HPP .. '%.. Equipping Sorcy Ring');
-            gFunc.Equip('Ring2', 'Sorcerer\'s Ring');
-        elseif (player.HPP >75) then
-            --print('Player HP : ' .. player.HPP .. '% (higher)');    
+        if SorcyRing() then
+            -- print('Current HP % : ' .. player.HPP .. '%.. Equipping Sorcy Ring');
+            gFunc.Equip('Ring2', 'Sorcerer\'s Ring');  
         end
-        -- +++++ +++++ Sorcy Ring Section +++++ +++++;
         -- +++++ ELEMENTAL +++++ SECTION +++++ END +++++        +++++++++++++++++++++++++++ EELEMENTAL +++++++++++++++++++++++++ --
     elseif (action.Skill == 'Dark Magic') then
         -- +++++ DARK +++++ DARK +++++ DARK +++++ --            +++++++++++++++++++++++++++ DARK +++++++++++++++++++++++++ --
         if (action.Name == 'Stun') then
-            gFunc.EquipSet(sets.stun);
+            gFunc.EquipSet(sets.Stun);
         elseif (DrainAspir:contains(action.Name)) then
             gFunc.EquipSet(sets.DrainAspir);
-            print('Current Day : ' .. environment.DayElement .. ' |  Current Weather : ' .. environment.Weather);
-            if (player.MPP <86 and environment.DayElement == 'Dark') then
-                print('Current HP % : ' .. player.MPP ..'%..  Equipping Diabolos Ring');
-                gFunc.EquipSet(sets.DarkMagic);
-                gFunc.Equip('Ring2', 'Diabolos\'s Ring');
-            end
             if (environment.WeatherElement == 'Dark') then
-                print('Equipping Diabolos Pole');
-                gFunc.EquipSet(sets.DarkMagic);
                 gFunc.Equip('Main', 'Diabolos\'s Pole');
+            end
+            if (action.Name == 'Aspir') then -- Aspir MP 55% for Diabolos Ring
+                print('Doing Aspir')
+                if (player.MPP <55 and environment.DayElement == 'Dark') then
+                    -- print('Current MP % : ' .. player.MPP ..'%..  Equipping Diabolos Ring');
+                    gFunc.Equip('Ring2', 'Diabolos\'s Ring');
+                end
+            elseif (action.Name == 'Drain') then -- Drain MP 85% for Diabolos Ring
+                if (player.MPP <85 and environment.DayElement == 'Dark') then
+                        -- print('Current MP % : ' .. player.MPP ..'%..  Equipping Diabolos Ring');
+                        gFunc.Equip('Ring2', 'Diabolos\'s Ring');
+                end
             end
         else
             gFunc.EquipSet(sets.DarkMagic);
@@ -517,8 +539,11 @@ profile.HandleMidcast = function()
         elseif (action.Name == 'Invisible') then
             gFunc.Equip('Hands', 'Dream Mittens +1');
         elseif (action.Name == 'Stoneskin') then
-            gFunc.EquipSet(sets.stoneskin);
+            gFunc.EquipSet(sets.Stoneskin);
         end
+    
+    elseif (action.Skill == 'Healing Magic') then
+        gFunc.EquipSet(sets.EnmityMP);
     else
         gFunc.EquipSet(sets.Haste);
     end
